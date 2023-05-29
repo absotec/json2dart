@@ -249,6 +249,8 @@ class FieldHelper {
         list.add(SimpleField("bool", k));
       } else if (v is Map<String, dynamic>) {
         list.add(MapField(v, k));
+      }else{
+        list.add(SimpleField("dynamic", k));
       }
     });
     return list;
@@ -358,14 +360,14 @@ ${template.end()}
 }
 
 String firstLetterUpper(String value) {
-  if (value == null || value.isEmpty) {
+  if (value.isEmpty) {
     return "";
   }
   return value[0].toUpperCase() + value.substring(1);
 }
 
 String firstLetterLower(String value) {
-  if (value == null || value.isEmpty) {
+  if ( value.isEmpty) {
     return "";
   }
   return value[0].toLowerCase() + value.substring(1);
